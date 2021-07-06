@@ -7,6 +7,6 @@ class Articles(models.Model):
     title = models.CharField(max_length=100, blank=True, default='')
     body = models.TextField(blank=True, default='')
     owner = models.ForeignKey('auth.User', related_name='articles', on_delete=models.CASCADE)
-
+    view = models.IntegerField(default=0)
     class Meta:
         ordering = ['created']

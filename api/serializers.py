@@ -1,5 +1,6 @@
 from rest_framework import serializers
 from django.contrib.auth.models import User
+from api import models
 from api.models import Articles
 
 class UserSerializer(serializers.ModelSerializer):
@@ -13,4 +14,10 @@ class ArticleSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Articles
-        fields = ['id', 'title', 'body', 'owner']
+        fields = ['id', 'title', 'body', 'owner','view']
+
+class ArticleByUserView(serializers.ModelSerializer):
+    class Meta:
+        model = Articles
+        fields = ['id', 'title', 'body','view','owner']
+    
